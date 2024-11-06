@@ -5,19 +5,15 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+ 
+import Roots from './Components/Roots/Roots';
+ 
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>
-       <h2 className='text-5xl font-bold'>Hello world!</h2>
-      <button className="btn btn-neutral">Neutral</button>
-      <button className="btn btn-primary">Primary</button>
-      <button className="btn btn-secondary">Secondary</button>
-     
-
-    </div>,
+    element: <Roots></Roots>
   },
 ]);
 
