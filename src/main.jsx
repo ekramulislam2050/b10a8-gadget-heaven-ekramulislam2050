@@ -8,6 +8,7 @@ import {
  
 import Roots from './Components/Roots/Roots';
 import Home from './Components/Home/Home';
+import AllProduct from './Components/AllProduct/AllProduct';
  
 
 
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
           path:"/",
           element:<Home></Home>,
           loader:()=>fetch("AllData/allData.json")
+        },
+        {
+          path:"AllProduct",
+          element:<AllProduct></AllProduct>
         }
      ]
   },
