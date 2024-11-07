@@ -3,11 +3,11 @@
 const ExploreSection = ({ data }) => {
    const { product_title, product_image, price } = data
    return (
-      <div className="p-5 my-5 border shadow-xl r card bg-base-100 w-96">
-         <figure>
+      <div className="p-5 my-5 border shadow-xl card bg-base-100 w-96 ">
+         <figure className="h-[250px]">
             <img
                src={product_image}
-               alt="Shoes"  className="w-full h-80"/>
+               alt="Shoes"  className="w-full h-full"/>
          </figure>
          <div className="card-body">
             <h2 className="card-title">{product_title}</h2>

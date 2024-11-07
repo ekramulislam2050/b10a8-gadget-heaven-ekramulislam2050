@@ -1,15 +1,27 @@
- 
+
 
 const Aside = () => {
     return (
-        <div className="p-5 my-5 border shadow-xl r card bg-base-100 w-96">
-              <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">Responsive</button>
-              <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">Responsive</button>
-              <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">Responsive</button>
-              <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">Responsive</button>
-             
-          
-      </div>
+        <div className="w-64 p-5 text-center border shadow-xl card bg-base-100">
+
+            <div  >
+                <button className="rounded-full bg-[#9538e2] btn btn-xs sm:btn-sm md:btn-md lg:btn-lg text-white">Responsive</button>
+            </div>
+             <br></br>
+            <div>
+                <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-[#9538e2] rounded-full text-white">Responsive</button>
+            </div>
+            <br></br>
+            <div>
+                <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-[#9538e2] rounded-full text-white">Responsive</button>
+            </div>
+            <br></br>
+            <div>
+                <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-[#9538e2] rounded-full text-white">Responsive</button>
+            </div>
+
+
+        </div>
     );
 };
 
