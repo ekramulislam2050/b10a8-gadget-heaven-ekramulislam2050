@@ -17,17 +17,23 @@ const Aside = () => {
             </NavLink>
 
             <br></br>
-            <div className="w-30">
-                <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-[#9538e2] rounded-full text-white w-full">Phones</button>
-            </div>
+            <NavLink to={"Phones"}>
+                <div className="w-30">
+                    <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-[#9538e2] rounded-full text-white w-full">Phones</button>
+                </div>
+            </NavLink>
             <br></br>
-            <div className="w-30">
-                <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-[#9538e2] rounded-full text-white w-full">Accessories</button>
-            </div>
+            <NavLink to={"Accessories"}>
+                <div className="w-30">
+                    <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-[#9538e2] rounded-full text-white w-full">Accessories</button>
+                </div>
+            </NavLink>
             <br></br>
-            <div className="w-30">
-                <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-[#9538e2] rounded-full text-white w-full">Smart Watch</button>
-            </div>
+            <NavLink to={"SmartWatch"}>
+                <div className="w-30">
+                    <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-[#9538e2] rounded-full text-white w-full">Smart Watch</button>
+                </div>
+            </NavLink>
 
 
         </div>

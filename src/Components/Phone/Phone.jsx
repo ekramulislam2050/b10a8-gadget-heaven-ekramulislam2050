@@ -1,11 +1,11 @@
- 
 
-const Laptop = ({data}) => {
-          const {product_image,product_title,price}=data
+
+const Phone = ({ data }) => {
+    console.log(data)
+    const {product_image, product_title,price} = data
     return (
         <div>
-               
-               <div className="p-5 mx-auto my-5 border shadow-xl card bg-base-100 w-96"  >
+            <div className="p-5 mx-auto my-5 border shadow-xl card bg-base-100 w-96"  >
                 <figure className="h-[250px]">
                     <img
                         src={product_image}
@@ -19,9 +19,8 @@ const Laptop = ({data}) => {
                     </div>
                 </div>
             </div>
-           
         </div>
     );
 };
 
-export default Laptop;
+export default Phone;

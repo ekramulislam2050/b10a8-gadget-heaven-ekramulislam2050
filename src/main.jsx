@@ -11,6 +11,9 @@ import Home from './Components/Home/Home';
 import AllProduct from './Components/AllProduct/AllProduct';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
 import Laptops from './Components/Laptops/Laptops';
+import Phones from './Components/Phones/Phones';
+import Accessories from './Components/Accessories/Accessories';
+import SmartWatch from './Components/SmartWatch/SmartWatch';
  
 
 
@@ -34,6 +37,21 @@ const router = createBrowserRouter([
           path:"Laptops",
           element:<Laptops></Laptops>,
           loader:()=>fetch("AllData/allData.json")
+        },
+        {
+          path:"Phones",
+          element:<Phones></Phones>,
+          loader:()=>fetch("AllData/allData.json")
+        },
+        {
+          path:"Accessories",
+          element:<Accessories></Accessories>,
+          loader:()=>fetch("AllData/allData.json")
+        },
+        {
+          path:"SmartWatch",
+          element:<SmartWatch></SmartWatch>,
+          
         }
      ]
   },
