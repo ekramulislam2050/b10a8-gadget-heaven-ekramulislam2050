@@ -1,7 +1,7 @@
 
 
 const Phone = ({ data }) => {
-    console.log(data)
+     
     const {product_image, product_title,price} = data
     return (
         <div>

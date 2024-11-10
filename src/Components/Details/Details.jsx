@@ -1,18 +1,29 @@
-import PropTypes from 'prop-types';
+import { useEffect, useState } from "react";
+import {   useParams } from "react-router-dom";
+ 
 
+ 
 
-const Details = ({  id,data}) => {
-    // console.log(  id,data)
-      
+const Details = () => {
+    const {product_id} =useParams()
+  
+    //  const clickedProductId = parseInt(product_id)
+    //  console.log(typeof(product_id ))
+    const [dataOfAll,setDataOfAll]=useState([])
+    // console.log(dataOfAll)
+       useEffect(()=>{
+           fetch("/AllData/allData.json")
+           .then(res=>res.json())
+           .then(res=>setDataOfAll(res))
+       },[])
+ 
+      const clickedData = dataOfAll.find(ProductData=> ProductData.product_id ===  product_id )
+      console.log(clickedData)
     return (
         <div>
-            
+            <h1>details Components</h1>
         </div>
     );
 };
-Details.PropTypes={
-    Details:PropTypes.func.isRequired,
-   data:PropTypes.object.isRequired
-}
 
 export default Details;

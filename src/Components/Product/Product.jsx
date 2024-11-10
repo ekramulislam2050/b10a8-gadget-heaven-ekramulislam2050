@@ -1,15 +1,12 @@
-import { useState } from "react";
-import Details from "../Details/Details";
+import { Link } from "react-router-dom";
+
+ 
 
 
 
 const Product = ({ data }) => {
     const { product_image, product_title, price, product_id } = data
-    const [id, setId] = useState('')
-    // console.log(id)
-    const handleVewDetails = (id) => {
-        setId(id)
-    }
+   
     return (
         <div>
             <div className="p-5 mx-auto my-5 border shadow-xl card bg-base-100 w-96"  >
@@ -22,12 +19,14 @@ const Product = ({ data }) => {
                     <h2 className="card-title">{product_title}</h2>
                     <p>Price:{price}</p>
                     <div className="justify-start card-actions">
-                        <button className="bg-white rounded-full btn btn-primary border-[#9538e2] text-[#9538e2]" onClick={() => handleVewDetails(product_id)}>View details</button>
+                       <Link to={ `/AllProduct/Product/${product_id}`}>
+                       <button className="bg-white rounded-full btn btn-primary border-[#9538e2] text-[#9538e2]"  >View details</button>
+                       </Link>
                     </div>
                 </div>
             </div>
              <div>
-                <Details id={id} data={data}></Details>
+                
              </div>
         </div>
     );
