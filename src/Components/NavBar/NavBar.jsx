@@ -10,9 +10,9 @@ const NavBar = () => {
                 <a className="text-xl text-white btn btn-ghost">Gadget Heaven</a>
                 <div className="justify-center mx-auto ">
 
-                    <NavLink to={"/"}>
+                    <NavLink to={"/"}className="text-xl text-white btn btn-ghost">
 
-                        <a className="text-xl text-white btn btn-ghost">Home</a>
+                         Home 
                     </NavLink>
 
                     <a className="text-xl text-white btn btn-ghost">Statistics</a>

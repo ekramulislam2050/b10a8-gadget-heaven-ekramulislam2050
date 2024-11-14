@@ -5,9 +5,12 @@ import Aside from "../Aside/Aside";
 
 
 
-const Home = () => {
-    const allData = useLoaderData()
 
+const Home = () => {
+    const allDataOfProducts = useLoaderData()
+
+
+    // console.log(allDataOfProducts)
     return (
 
         <div>
@@ -24,13 +27,16 @@ const Home = () => {
                     </div>
 
                     <div className="grid grid-cols-3 w-[75%]   my-10 ">
-                        {
-                            allData.map((data, index) =>
+
+                        {   
+                            
+                        allDataOfProducts.map((data,index) => 
                                 <ExploreSection data={data} key={index}></ExploreSection>
 
                             )
                         }
-
+                      
+                            
                     </div>
 
                 </div>
