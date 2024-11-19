@@ -15,11 +15,6 @@ import Phones from './Components/Phones/Phones';
 import Accessories from './Components/Accessories/Accessories';
 import SmartWatch from './Components/SmartWatch/SmartWatch';
 import Details from './Components/Details/Details';
-import ExploreSection from './Components/ExploreSection/ExploreSection';
-
-
-
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -29,7 +24,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("../allData.json")
+        loader: () => fetch("/allData.json")
       },
       {
          path:"ExploreSection/:product_id",
@@ -38,7 +33,7 @@ const router = createBrowserRouter([
       {
         path: "AllProduct",
         element: <AllProduct></AllProduct>,
-        loader: () => fetch("../allData.json")
+        loader: () => fetch("/allData.json")
       },
       {
         path: "Product/:product_id",
@@ -49,7 +44,7 @@ const router = createBrowserRouter([
       {
         path: "Laptops",
         element: <Laptops></Laptops>,
-        loader: () => fetch("../allData.json")
+        loader: () => fetch("/allData.json")
       },
       {
         path: "Laptop/:product_id",
@@ -58,7 +53,7 @@ const router = createBrowserRouter([
       {
         path: "Phones",
         element: <Phones></Phones>,
-        loader: () => fetch("../allData.json")
+        loader: () => fetch("/allData.json")
       },
       {
          path:"Phone/:product_id",
@@ -67,7 +62,7 @@ const router = createBrowserRouter([
       {
         path: "Accessories",
         element: <Accessories></Accessories>,
-        loader: () => fetch("../allData.json")
+        loader: () => fetch("/allData.json")
       },
       {
         path:"Accessory/:product_id",
@@ -78,6 +73,7 @@ const router = createBrowserRouter([
         element: <SmartWatch></SmartWatch>,
 
       }
+    
     ]
   },
 ]);

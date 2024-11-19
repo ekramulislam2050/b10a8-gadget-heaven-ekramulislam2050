@@ -1,9 +1,10 @@
 
 import { CiHeart } from "react-icons/ci";
 import { FaCartShopping } from "react-icons/fa6";
-import { NavLink } from "react-router-dom";
+import { NavLink} from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = ( ) => {
+     
     return (
         <div className="navbar bg-[#9538e2] w-11/12 mx-auto rounded-t-xl   mt-4">
             <div className="flex-1 ">
