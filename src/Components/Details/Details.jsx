@@ -1,12 +1,17 @@
-import { useEffect, useState } from "react";
-import {  useParams } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+
+import {useNavigate, useParams } from "react-router-dom";
 import { BsCart2 } from "react-icons/bs";
 import { CiHeart } from "react-icons/ci";
-import { getFromAddToCardHandler } from "../../../public/LocalStorage";
+import { ProductContext } from "../ProductProvider/ProductProvider";
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+ 
+ 
  
 
-
 const Details = () => {
+     const navigate = useNavigate()
     const { product_id } = useParams()
     const clickedProductId = parseInt(product_id)
     const [dataOfAll, setDataOfAll] = useState([])
@@ -19,22 +24,39 @@ const Details = () => {
 
     const clickedData = dataOfAll.find(ProductData => ProductData.product_id == clickedProductId)
     // console.log(clickedData)
-    const { rating, specification, price, product_image, product_title, availability,product_id:current_id
+    const { rating, specification, price, product_image, product_title, availability, product_id: current_id
 
     } = clickedData || {}
     // console.log( current_id
     // )
     // addToCardHandler---------------
-     
+    const { idGetFromAddToCardHandler, idGetFromWishListHandler } = useContext(ProductContext)
     const addToCardHandler = (current_id) => {
-          
-        getFromAddToCardHandler(current_id)
-
+        
+        // console.log(current_id)
+        idGetFromAddToCardHandler(current_id)
+        toast.success("item added to cart list,please click the dashboard for seeing cart list",{autoClose:3000})
+         setTimeout(()=>{
+            navigate("/")
+         },3000)
+  
+    }
+    // wish list handler---------------------------
+    const wishListHandler = (current_id) => {
+     
+        // console.log(current_id)
+        idGetFromWishListHandler(current_id)
+        toast.success("item added to wish list,please click the dashboard for seeing wish list",{autoClose:3000})
+         setTimeout(()=>{
+            navigate("/")
+         },3000)
+        
     }
 
     return (
 
         <div className="bg-[#9538e2] w-11/12 mx-auto relative pb-80 rounded-b-xl mb-80">
+            <ToastContainer></ToastContainer>
             <div className="">
                 <h1 className="pt-5 text-4xl font-bold text-center text-white"> Product Details</h1>
                 <p className="pt-3 text-center text-white">Explore the latest gadgets that will take your experience to the next level. From smart devices to <br></br>the coolest accessories, we have it all!</p>
@@ -82,9 +104,10 @@ const Details = () => {
                                 <input type="radio" name="rating-2" className="bg-orange-400 mask mask-star-2" />
                             </div>
                             <div className="mt-1">
-                         
-                                <button className="mr-2 text-black bg-green-200 rounded-full btn" onClick={()=>addToCardHandler(current_id)}>Add to card<BsCart2 /> </button>
-                                <button className="text-black bg-green-200 rounded-full btn"><CiHeart /></button>
+
+                                <button className="mr-2 text-black bg-green-200 rounded-full btn" onClick={() => addToCardHandler(current_id)}>Add to card<BsCart2 /> </button>
+
+                                <button className="text-black bg-green-200 rounded-full btn" onClick={() => wishListHandler(current_id)}><CiHeart /></button>
                             </div>
                         </div>
                     </div>

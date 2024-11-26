@@ -1,23 +1,28 @@
 
+import { useContext } from "react";
 import { CiHeart } from "react-icons/ci";
 import { FaCartShopping } from "react-icons/fa6";
-import { NavLink} from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { ProductContext } from "../ProductProvider/ProductProvider";
+const NavBar = () => {
+    const { storeAddToCardId, storeWishListId } = useContext(ProductContext)
+    //    console.log(storeAddToCardId,storeWishListId)
 
-const NavBar = ( ) => {
-     
     return (
         <div className="navbar bg-[#9538e2] w-11/12 mx-auto rounded-t-xl   mt-4">
             <div className="flex-1 ">
                 <a className="text-xl text-white btn btn-ghost">Gadget Heaven</a>
                 <div className="justify-center mx-auto ">
 
-                    <NavLink to={"/"}className="text-xl text-white btn btn-ghost">
-
-                         Home 
+                    <NavLink to={"/"} className="text-xl text-white btn btn-ghost">
+                        Home
                     </NavLink>
 
                     <a className="text-xl text-white btn btn-ghost">Statistics</a>
-                    <a className="text-xl text-white btn btn-ghost">Dashboard</a>
+                    <NavLink to={"DashBoard"} className="text-xl text-white btn btn-ghost">
+                        Dashboard
+                    </NavLink>
+
 
                 </div>
 
@@ -28,17 +33,19 @@ const NavBar = ( ) => {
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
                         <div className="indicator">
                             <FaCartShopping className="text-3xl text-white" />
-                            <span className="badge badge-sm indicator-item">8</span>
+                            <span className="text-red-500 badge badge-sm indicator-item">{storeAddToCardId.length}</span>
                         </div>
                     </div>
                     <div
                         tabIndex={0}
                         className="card card-compact dropdown-content bg-base-100 z-[1] mt-3 w-52 shadow">
                         <div className="card-body">
-                            <span className="text-lg font-bold">8 Items</span>
+                            <span className="text-lg font-bold">{storeAddToCardId.length} Items added</span>
                             <span className="text-info">Subtotal: $999</span>
                             <div className="card-actions">
-                                <button className="btn btn-primary btn-block">View cart</button>
+                                <Link to={"/DashBoard"}>
+                                    <button className="btn bg-[#9538e2] btn-block  btn-primary">DashBoard</button>
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -46,20 +53,24 @@ const NavBar = ( ) => {
                 <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
-                            <CiHeart className="text-4xl text-white" />
+                            <span className="text-red-500 badge badge-sm indicator-item">{storeWishListId.length}</span>
+
+                            <CiHeart className="pb-2 text-4xl text-white" />
+
                         </div>
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2  ">
                         <li>
-                            <a className="justify-between">
-                                Profile
-                                <span className="badge">New</span>
-                            </a>
+                            <span className="text-lg font-bold">{storeAddToCardId.length} Items added</span>
                         </li>
-                        <li><a>Settings</a></li>
-                        <li><a>Logout</a></li>
+
+                        <li>
+                            <Link to={"/DashBoard"}>
+                                <button className="btn bg-[#9538e2] btn-block  btn-primary  ">DashBoard</button>
+                            </Link>
+                        </li>
                     </ul>
                 </div>
             </div>

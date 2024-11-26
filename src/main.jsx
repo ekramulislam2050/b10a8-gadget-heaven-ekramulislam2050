@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+import {   StrictMode  } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import {
@@ -15,6 +15,12 @@ import Phones from './Components/Phones/Phones';
 import Accessories from './Components/Accessories/Accessories';
 import SmartWatch from './Components/SmartWatch/SmartWatch';
 import Details from './Components/Details/Details';
+import ProductProvider from './Components/ProductProvider/ProductProvider';
+import DashBoard from './Components/DashBoard/DashBoard';
+ 
+ 
+
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -72,14 +78,25 @@ const router = createBrowserRouter([
         path: "SmartWatch",
         element: <SmartWatch></SmartWatch>,
 
+      },
+      {
+        path:"DashBoard",
+        element:<DashBoard></DashBoard>
       }
     
     ]
+  
+   
   },
 ]);
 
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+     
+   <ProductProvider>
+   <RouterProvider router={router} />
+   </ProductProvider>
+ 
   </StrictMode>,
 )
