@@ -1,7 +1,7 @@
 
 
  const getFromLocalStorage=()=>{
-      const get = localStorage.getItem("card_id");
+      const get = localStorage.getItem("cardData");
       // console.log(get)
       if(get){
          const convertToJsObject = JSON.parse(get);
@@ -11,21 +11,33 @@
       }
  }
 
-const getFromAddToCardHandler =(id)=>{
-        //  console.log(id)
+const getFromAddToCardHandler =(data)=>{
+      //    console.log(data)
+        
         const getFromLs = getFromLocalStorage()
         // console.log(getFromLs)
-        if(getFromLs.includes(id)){
-              // console.log(id,'all ready exit')
+        if(getFromLs.includes(data)){
+              console.log(data,'all ready exit')
         }else{
-            getFromLs.push(id)
+            getFromLs.push(data)
             const convertToJsonStr = JSON.stringify(getFromLs);
-              localStorage.setItem("card_id",convertToJsonStr)
+              localStorage.setItem("cardData",convertToJsonStr)
         }
       
 }
-      
+  const getRemoveDataFromCartLis=(c_data)=>{
+      // console.log(c_data)
+         const gFLs = getFromLocalStorage();
+           console.log(gFLs)
+    
+           const  returnData = gFLs.filter(data=>{
+            //    console.log(`checking:${  data.product_id } !== ${  c_data.product_id }`)
+            return data.product_id !== c_data.product_id 
+         })
+          localStorage.setItem("cardData",JSON.stringify(returnData))
 
+     }    
+// wish List ------------------------------------------>
        const getWishListDataFromLocalStorage = ()=>{
               const getDataFromLocalStorage= localStorage.getItem("wishListData")
               if(getDataFromLocalStorage){
@@ -45,4 +57,18 @@ const getFromAddToCardHandler =(id)=>{
 
                }
       }
-export {getFromLocalStorage,getFromAddToCardHandler,getDataFromWishListHandler,getWishListDataFromLocalStorage};
+      
+
+      const getRemoveDataFromWishList = (w_data)=>{
+            //    console.log(w_data)
+         const gFwLs = getWishListDataFromLocalStorage();
+      //    console.log(gFwLs)
+  
+         const  returnData = gFwLs.filter(data=>{
+             console.log(`checking:${  data.product_id } !== ${  w_data.product_id }`)
+          return data.product_id !== w_data.product_id 
+       })
+       console.log(returnData)
+        localStorage.setItem("wishListData",JSON.stringify(returnData))
+      }
+export {getFromLocalStorage,getFromAddToCardHandler,getDataFromWishListHandler,getWishListDataFromLocalStorage,getRemoveDataFromCartLis,getRemoveDataFromWishList};
