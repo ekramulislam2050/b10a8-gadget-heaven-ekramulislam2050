@@ -35,10 +35,10 @@ const Details = () => {
         
         // console.log(current_id)
         idGetFromAddToCardHandler(current_id)
-        toast.success("item added to cart list,please click the dashboard for seeing cart list",{autoClose:3000})
+        toast.success("item added to cart list,please click the dashboard for seeing cart list",{autoClose:2000})
          setTimeout(()=>{
             navigate("/")
-         },3000)
+         },2000)
   
     }
     // wish list handler---------------------------

@@ -5,7 +5,7 @@ import { FaCartShopping } from "react-icons/fa6";
 import { Link, NavLink } from "react-router-dom";
 import { ProductContext } from "../ProductProvider/ProductProvider";
 const NavBar = () => {
-    const { storeAddToCardId, storeWishListId } = useContext(ProductContext)
+    const { storeAddToCardData, storeWishListData } = useContext(ProductContext)
     //    console.log(storeAddToCardId,storeWishListId)
 
     return (
@@ -33,14 +33,14 @@ const NavBar = () => {
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
                         <div className="indicator">
                             <FaCartShopping className="text-3xl text-white" />
-                            <span className="text-red-500 badge badge-sm indicator-item">{storeAddToCardId.length}</span>
+                            <span className="text-red-500 badge badge-sm indicator-item">{storeAddToCardData.length}</span>
                         </div>
                     </div>
                     <div
                         tabIndex={0}
                         className="card card-compact dropdown-content bg-base-100 z-[1] mt-3 w-52 shadow">
                         <div className="card-body">
-                            <span className="text-lg font-bold">{storeAddToCardId.length} Items added</span>
+                            <span className="text-lg font-bold">{storeAddToCardData.length} Items added</span>
                             <span className="text-info">Subtotal: $999</span>
                             <div className="card-actions">
                                 <Link to={"/DashBoard"}>
@@ -53,7 +53,7 @@ const NavBar = () => {
                 <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
-                            <span className="text-red-500 badge badge-sm indicator-item">{storeWishListId.length}</span>
+                            <span className="text-red-500 badge badge-sm indicator-item">{storeWishListData.length}</span>
 
                             <CiHeart className="pb-2 text-4xl text-white" />
 
@@ -63,7 +63,7 @@ const NavBar = () => {
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2  ">
                         <li>
-                            <span className="text-lg font-bold">{storeAddToCardId.length} Items added</span>
+                            <span className="text-lg font-bold">{storeWishListData.length} Items added</span>
                         </li>
 
                         <li>

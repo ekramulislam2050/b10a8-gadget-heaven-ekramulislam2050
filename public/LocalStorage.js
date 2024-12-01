@@ -17,7 +17,7 @@ const getFromAddToCardHandler =(data)=>{
         const getFromLs = getFromLocalStorage()
         // console.log(getFromLs)
         if(getFromLs.includes(data)){
-              console.log(data,'all ready exit')
+            //   console.log(data,'all ready exit')
         }else{
             getFromLs.push(data)
             const convertToJsonStr = JSON.stringify(getFromLs);
@@ -28,7 +28,7 @@ const getFromAddToCardHandler =(data)=>{
   const getRemoveDataFromCartLis=(c_data)=>{
       // console.log(c_data)
          const gFLs = getFromLocalStorage();
-           console.log(gFLs)
+         //   console.log(gFLs)
     
            const  returnData = gFLs.filter(data=>{
             //    console.log(`checking:${  data.product_id } !== ${  c_data.product_id }`)
@@ -49,7 +49,7 @@ const getFromAddToCardHandler =(data)=>{
       const getDataFromWishListHandler=(data)=>{
                const wishListData = getWishListDataFromLocalStorage()
                if(wishListData.includes(data)){
-                  console.log(data,"data is already exit")
+                  // console.log(data,"data is already exit")
                }else{ 
                      wishListData.push(data)
                      const convertToJsonStrWd = JSON.stringify(wishListData)
@@ -65,10 +65,10 @@ const getFromAddToCardHandler =(data)=>{
       //    console.log(gFwLs)
   
          const  returnData = gFwLs.filter(data=>{
-             console.log(`checking:${  data.product_id } !== ${  w_data.product_id }`)
+            //  console.log(`checking:${  data.product_id } !== ${  w_data.product_id }`)
           return data.product_id !== w_data.product_id 
        })
-       console.log(returnData)
+      //  console.log(returnData)
         localStorage.setItem("wishListData",JSON.stringify(returnData))
       }
 export {getFromLocalStorage,getFromAddToCardHandler,getDataFromWishListHandler,getWishListDataFromLocalStorage,getRemoveDataFromCartLis,getRemoveDataFromWishList};

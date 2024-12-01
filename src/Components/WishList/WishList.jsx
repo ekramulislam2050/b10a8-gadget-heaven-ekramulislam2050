@@ -1,15 +1,19 @@
 
 import { TiDeleteOutline } from "react-icons/ti";
-import { getRemoveDataFromWishList } from "../../../public/LocalStorage";
-import { useContext, useState } from "react";
+import { getRemoveDataFromWishList, getWishListDataFromLocalStorage } from "../../../public/LocalStorage";
+import { useContext, useEffect, useState } from "react";
 import { ProductContext } from "../ProductProvider/ProductProvider";
 
 
 const WishList = () => {
-    const { storeWishListId } = useContext(ProductContext)
-    const [wishData, setWishData] = useState(storeWishListId)
+    const { storeWishListData,setStoreWishListData } = useContext(ProductContext)
+    const [wishData, setWishData] = useState(storeWishListData)
     // console.log(wishData)
-
+      const [clickedDataOfWish,setClickedDataOfWish]=useState([])
+     useEffect(()=>{
+        const ls_wishListDataAfterRemove = getWishListDataFromLocalStorage()
+        setStoreWishListData(ls_wishListDataAfterRemove)
+     },[clickedDataOfWish])
     const deleteItem = (w_data) => {
         // console.log(c_data)
         // console.log(wishData)
@@ -22,7 +26,7 @@ const WishList = () => {
         // console.log(remains)
         setWishData(remains)
         getRemoveDataFromWishList(w_data)
-
+        setClickedDataOfWish(w_data)
 
 
     }

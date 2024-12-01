@@ -18,7 +18,7 @@ const ProductProvider = ({children}) => {
     },[])
 
     // id Get From Add To Card Handler start here------------------->
-    const [storeAddToCardId,setStoreAddToCardId]=useState([])
+    const [storeAddToCardData,setStoreAddToCardData]=useState([])
     // console.log(storeAddToCardId)
     const [array,setArray]=useState([])
     // console.log(array)
@@ -26,7 +26,7 @@ const ProductProvider = ({children}) => {
     useEffect(()=>{
         const arrLs = getFromLocalStorage()
         // console.log(arrLs)
-        setStoreAddToCardId(arrLs)
+        setStoreAddToCardData(arrLs)
         
     },[array])
   
@@ -41,14 +41,14 @@ const ProductProvider = ({children}) => {
     // id Get From Add To Card Handler end here------------------->
 
     // id Get From Wish List Handler start here-------------->
-    const [storeWishListId,setStoreWishListId]=useState([])
+    const [storeWishListData,setStoreWishListData]=useState([])
     // console.log(storeWishListId)
     const [wishListArray,setWishListArray]=useState([])
     // console.log(wishListArray)
 
     useEffect(()=>{
        const getWishListDataFromLs=getWishListDataFromLocalStorage()
-       setStoreWishListId(getWishListDataFromLs)
+       setStoreWishListData(getWishListDataFromLs)
     },[wishListArray])
 
     const idGetFromWishListHandler=(current_id)=>{
@@ -63,8 +63,10 @@ const ProductProvider = ({children}) => {
     const ProductInfo ={
         idGetFromAddToCardHandler,
         idGetFromWishListHandler,
-        storeAddToCardId,
-        storeWishListId
+        setStoreAddToCardData,
+        setStoreWishListData,
+        storeAddToCardData,
+        storeWishListData
      }
     return (
         <ProductContext.Provider value={ProductInfo}>
