@@ -3,6 +3,7 @@ import { TiDeleteOutline } from "react-icons/ti";
 
 import { getFromLocalStorage, getRemoveDataFromCartLis } from "../../../public/LocalStorage";
 import { ProductContext } from "../ProductProvider/ProductProvider";
+import { data } from "autoprefixer";
 
 
 const CartList = () => {
@@ -10,12 +11,20 @@ const CartList = () => {
 
     const [cardData, setCardData] = useState(storeAddToCardData)
     // console.log(cardData)
+    // total cost --------------------------------------->
     const [totalCost, setTotalCost] = useState(
          storeAddToCardData.reduce((totalPrice,product)=>{
              return  totalPrice + product.price
          },0)
     )
-    // console.log(parseInt(price))
+    // console.log(parseInt(totalCost))
+    // sorting------------------------------>
+       const handleSort=()=>{
+          const sortData = cardData.sort((a,b)=>a.price-b.price)
+              setCardData([...sortData])
+            //   console.log(sortData)
+       }
+    
     const [clickedData, setClickedData] = useState([])
     // console.log(clickedData) 
     useEffect(() => {
@@ -49,8 +58,8 @@ const CartList = () => {
                     <h1 className="text-4xl font-semibold">cart</h1>
                 </div>
                 <div  >
-                    <span className="text-2xl font-semibold">Total price : {parseInt(totalCost)}</span>
-                    <button className="mr-2 text-xl  rounded-full w-28 bg-[#9538e2] text-white py-2" > Sort</button>
+                    <span className="mr-1 text-2xl font-semibold">Total price :$ {parseInt(totalCost)}</span>
+                    <button className="mr-2 text-xl  rounded-full w-28 bg-[#9538e2] text-white py-2" onClick={handleSort}> Sort</button>
 
                     <button className="text-xl bg-[#9538e2] rounded-full text-white   w-28 py-2" >Parches</button>
                 </div>
