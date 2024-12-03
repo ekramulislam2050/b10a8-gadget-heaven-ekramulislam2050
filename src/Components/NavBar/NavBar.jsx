@@ -18,7 +18,10 @@ const NavBar = () => {
                         Home
                     </NavLink>
 
-                    <a className="text-xl text-white btn btn-ghost">Statistics</a>
+                    <NavLink to={"Statics"} className="text-xl text-white btn btn-ghost">Statistics
+                        
+                    </NavLink>
+                    
                     <NavLink to={"DashBoard"} className="text-xl text-white btn btn-ghost">
                         Dashboard
                     </NavLink>

@@ -32,8 +32,8 @@ const WishList = () => {
     }
     return (
         <div>
-            <div>
-                <h1>Wish list</h1>
+            <div className="text-center">
+                <h1 className="pt-3 text-4xl font-semibold">Wish list</h1>
             </div>
             <div>
                 {

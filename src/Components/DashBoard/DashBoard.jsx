@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import { useState } from "react";
 
 import CartList from "../CartList/CartList";
 import WishList from "../WishList/WishList";
@@ -6,7 +6,7 @@ import WishList from "../WishList/WishList";
 
 
 const DashBoard = () => {
-   
+
     const [show, setShow] = useState()
     return (
         <div>

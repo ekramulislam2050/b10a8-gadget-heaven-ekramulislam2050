@@ -17,6 +17,8 @@ import SmartWatch from './Components/SmartWatch/SmartWatch';
 import Details from './Components/Details/Details';
 import ProductProvider from './Components/ProductProvider/ProductProvider';
 import DashBoard from './Components/DashBoard/DashBoard';
+import Statics from './Components/Statics/Statics';
+
  
  
 
@@ -79,10 +81,16 @@ const router = createBrowserRouter([
         element: <SmartWatch></SmartWatch>,
 
       },
+    
       {
         path:"DashBoard",
         element:<DashBoard></DashBoard>
-      }
+      },
+      {
+        path:"Statics",
+        element:<Statics></Statics>
+      },
+   
     
     ]
   
