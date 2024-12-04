@@ -1,4 +1,4 @@
-
+import image from "../../assets/image/banner.jpg"
 
 const Banner = () => {
     return (
@@ -13,7 +13,7 @@ const Banner = () => {
             </div>
             <div style={{position:"absolute",top:"600px" ,left:"50%",transform:'translate(-50%,-50%)'}}  className="border border-white rounded-xl "> 
                 <div className="lg:w-[1000px] lg:h-[600px]  sm:w-[350px] sm:h-[300px] mx-auto   p-5  " >
-                    <img src="/src/assets/image/banner.jpg" alt="" className="w-full h-full rounded-2xl" />
+                    <img src={image} alt="img not found" className="w-full h-full rounded-2xl" />
                 </div>
             </div>
         </div>

@@ -3,7 +3,7 @@ import { TiDeleteOutline } from "react-icons/ti";
 
 import { getFromLocalStorage, getRemoveDataFromCartLis } from "../../../public/LocalStorage";
 import { ProductContext } from "../ProductProvider/ProductProvider";
-import { data } from "autoprefixer";
+import image from "../../assets/image/Group.png"
 
 
 const CartList = () => {
@@ -59,7 +59,7 @@ const CartList = () => {
             <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box">
                     <div className="flex flex-col justify-center item-center w-[100px] mx-auto">
-                        <img src="src/assets/image/Group.png" className="w-full"/>
+                        <img src={image} alt="img not found" className="w-full"/>
                     </div>
                     <p className="py-4 text-center">Parches successful </p>
                     <div className="justify-center modal-action">
